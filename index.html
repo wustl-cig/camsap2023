@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="Convergence of Nonconvex PnP-ADMM with MMSE Denoisers">
+    <meta name="author" content="Chicago Park,
+    Shirin Shoushtari,
+    Weijie Gan,
+    Ulugbek S. Kamilov">
+
+    <title>Convergence of Nonconvex PnP-ADMM with MMSE Denoisers</title>
+    <!-- Bootstrap core CSS -->
+    <!--link href="bootstrap.min.css" rel="stylesheet"-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="offcanvas.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="src/css/style.css">
+
+<!--    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>-->
+    <!--    <link rel="icon" href="img/favicon.gif" type="image/gif">-->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container"></div>
+    <h2>Convergence of Nonconvex PnP-ADMM with MMSE Denoisers</h2> <h2></h2>
+    <h3></h3> 
+            <p class="abstract">Nonconvex Convergence Analysis of PnP-ADMM for MMSE Priors: Exploring Stability with Expansive CNNs</p>
+    <hr>
+    <p class="authors">
+        <a href="https://chicagopark.github.io"> Chicago Park*<sup></sup></a>,
+        <a href="https://shirinsg.github.io"> Shirin Shoushtari*<sup></sup></a>,
+        <a href="https://wjgancn.github.io/"> Weijie Gan<sup></sup></a>,
+        <a href="https://engineering.wustl.edu/faculty/Ulugbek-Kamilov.html"> Ulugbek S. Kamilov<sup></sup></a> </br>
+    </p>
+    <p>
+        <a><sup></sup>Computational Imaging Group (CIG)</a></br>
+        <a><sup></sup>Washington University in St.Louis, MO, USA</a></br>
+		</br>
+		<a><sup></sup><b>Chicago Park</b> and <b>Shirin Shoushtari</b> contributed equally to this project.</a></br>
+    </p>
+
+    <div class="btn-group" role="group" aria-label="Top menu">
+        
+        <a class="btn btn-primary" href="https://arxiv.org/abs/2311.18810">Preprint</a>
+      
+    </div>
+
+    
+</div>
+
+<div class="container">
+    <div class="section">
+
+     <div class="row align-items-center">
+		<div class="col justify-content-center text-center">
+        		<img src="./img/CAMSAP2023_new.gif" style="width:85%" alt="Banner">
+                <p><b>Figure 1:</b> An illustration of convergence of PnP-ADMM with expansive and non-expansive denoisers.</p>
+            </div>
+        </div>
+
+       
+
+
+        <!-- <video width="100%" height="400" controls="True" preload="none" loop muted autoplay = 'autoplay' playsInline>
+            <source type="video/mp4" src="img/Presentation1.mov" />
+            <source type="video/webm" src="img/video1.webm" />
+        </video> -->
+
+
+        <br>
+        <h2>Abstract</h2>
+        <hr>
+        <p>
+            Plug-and-Play Alternating Direction Method of Multipliers (PnP-ADMM) is a widely-used algorithm for solving inverse problems by integrating physical measurement models and convolutional neural network (CNN) priors. PnP-ADMM has been theoretically proven to converge for convex data-fidelity terms and nonexpansive CNNs. It has however been observed that PnP-ADMM often empirically converges even for expansive CNNs. This paper presents a theoretical explanation for the observed stability of PnP-ADMM based on the interpretation of the CNN prior as a minimum mean-squared error (MMSE) denoiser. Our explanation parallels a similar argument recently made for the iterative shrinkage/thresholding algorithm variant of PnP (PnP-ISTA) and relies on the connection between MMSE denoisers and proximal operators. We also numerically evaluate the performance gap between PnP-ADMM using a nonexpansive DnCNN denoiser and expansive DRUNet denoiser, thus motivating the use of expansive CNNs.
+        </p>
+    </div>
+
+
+    <div class="section">
+        <h2> Convergence Behaviour of PnP-ADMM and PnP-FISTA</h2>
+        <hr>
+
+        <div class="row align-items-center">
+			<div class="col justify-content-center text-left">
+                <img src="img/CAMSAP2023_convergence.jpg" style="width:100%" alt="Banner">
+                <p><b>Figure 2:</b> Comparison of PnP-ADMM and PnP-FISTA, each using a non-expansive DnCNN denoiser and an expansive DRUNet denoiser. The figure plots the evolution of \( \|x^{k} - x^{k+1}\|_2 / \|x^{k+1}\|_2 \), while the right one that of PSNR (dB).</p>
+            </div>
+        </div>
+    
+
+ 
+    </div>
+
+    <div class="section">
+        <h2> PnP-ADMM and PnP-FISTA for Image Deblurring </h2>
+        <hr>
+        <div class="row align-items-center">
+			<div class="col justify-content-center text-left">
+                <img src="img/CAMSAP2023_image.jpg" style="width:100%" alt="Banner">
+                <p> <b>Figure 3:</b> Comparison of four different methods for deblurring a color image with a noise level of 0.03. The reconstruction performance is quantified using PSNR and SSIM in the top-left corner of each image. Note the improved performance of PnP-ADMM using an expansive DRUNet denoiser compared to nonexpansive DnCNN denoiser. </i> </p>
+            </div>
+        </div>
+
+         <div class="row align-items-center">
+            <div class="col justify-content-center text-left">
+			<div style="text-align:center;">
+                <img src="img/CAMSAP2023_table.jpg" style="width:50%" alt="Banner">
+                <p> <b>Table 1:</b> Performance of PnP-ADMM and PnP-FISTA using two priors on image deblurring at different levels of noise. </i> </p>
+
+
+
+
+
+    </div>
+    
+    <div class="section">
+        <h2>Paper</h2>
+        <hr>
+        <div>
+            <div class="list-group">
+                <a href="https://arxiv.org/abs/2311.18810"
+                   class="list-group-item">
+                    <img src="img/CAMSAP2023_paper.jpg" style="width:100%; margin-right:-20px; margin-top:-10px;">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Bibtex</h2>
+        <hr>
+        <div class="bibtexsection">
+            @article{Park.etal2023,
+                author={Park, Chicago
+                    and Shoushtari, Shirin
+                    and Gan, Weijie
+                    and Kamilov, Ulugbek S.},
+                title={Convergence of Nonconvex PnP-ADMM with MMSE Denoisers},
+                note={arXiv:2311.18810},
+                year={2023}
+            }
+        </div>
+    </div>
+
+    <hr>
+
+   <footer>
+       <p>Acknoledgement: This web template is based on the one from <a href="https://www.vincentsitzmann.com/siren/">SIREN</a>.</p>
+   </footer>
+</div>
+</body>
+</html>
